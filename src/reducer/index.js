@@ -17,14 +17,15 @@ const removeById = (state = [], id) => {
 
 const reminders = (state = [], action) => {
     let reminders = null;
-    
+    state = JSON.parse(localStorage.getItem('reminders')) || [];
     switch (action.type) {
         case ADD_REMINDER:
-            reminders = [...state, reminder(action)]
-            console.log('reminders as state', reminders);
+            reminders = [...state, reminder(action)];
+            localStorage.setItem('reminders', JSON.stringify(reminders));
             return reminders;
         case DELETE_REMINDER:
             reminders = removeById(state, action.id);
+            localStorage.setItem('reminders', JSON.stringify(reminders));
             return reminders;
         default:
             return state;
