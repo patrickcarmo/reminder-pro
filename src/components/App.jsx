@@ -81,12 +81,17 @@ class App extends Component{
                     </button>
                 </div>
                 {this.renderReminders()}
-                <div
-                    className="btn btn-danger"
-                    onClick={() => this.props.clearReminders()}
-                >
-                    Clear Reminders
-                </div>
+                {this.props.reminders.length 
+                    ?
+                        < div
+                        className="btn btn-danger"
+                        onClick={() => this.props.clearReminders()}
+                        >
+                            Clear Reminders
+                        </div>
+                    :
+                        <div></div>
+                }
             </div>
         )        
     }
