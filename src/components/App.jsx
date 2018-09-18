@@ -22,6 +22,7 @@ class App extends Component{
     deleteReminder(id) {
         console.log('deleting in application', id);
         console.log('this.props', this.props);
+        this.props.deleteReminder(id);
     }
 
     renderReminders() {
@@ -37,7 +38,7 @@ class App extends Component{
                                     className="list-item delete-button"
                                     onClick={() => this.deleteReminder(reminder.id)}
                                 >
-                                    <span class="glyphicon glyphicon-trash"></span>                                  
+                                    <span className="glyphicon glyphicon-trash"></span>                                  
                                 </div>
                             </li>
                         )
